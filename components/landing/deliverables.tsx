@@ -1,18 +1,31 @@
-import { DocumentCheckIcon } from "@heroicons/react/24/outline";
+import {
+  TableCellsIcon,
+  DocumentTextIcon,
+  CircleStackIcon,
+  ExclamationTriangleIcon,
+  HashtagIcon,
+  TagIcon,
+  QrCodeIcon,
+  DocumentMagnifyingGlassIcon,
+  CalculatorIcon,
+  DocumentChartBarIcon,
+  ClockIcon,
+  CheckBadgeIcon,
+} from "@heroicons/react/24/outline";
 
 const deliverables = [
-  "Planilha de produtos levantados",
-  "Relatório de contagem",
-  "Base para importação em ERP",
-  "Lista de produtos sem código ou pendentes",
-  "Quantidades por produto",
-  "Categorias",
-  "Código de barras",
-  "Descrição dos produtos",
-  "NCM quando disponível",
-  "Base fiscal sugerida quando contratada",
-  "Relatório final em formato organizado",
-  "Acompanhamento remoto por 30 dias",
+  { icon: TableCellsIcon, text: "Planilha de produtos levantados" },
+  { icon: DocumentTextIcon, text: "Relatório de contagem" },
+  { icon: CircleStackIcon, text: "Base para importação em ERP" },
+  { icon: ExclamationTriangleIcon, text: "Lista de produtos pendentes" },
+  { icon: HashtagIcon, text: "Quantidades por produto" },
+  { icon: TagIcon, text: "Categorias organizadas" },
+  { icon: QrCodeIcon, text: "Código de barras" },
+  { icon: DocumentMagnifyingGlassIcon, text: "Descrição dos produtos" },
+  { icon: CalculatorIcon, text: "NCM quando disponível" },
+  { icon: CheckBadgeIcon, text: "Base fiscal sugerida" },
+  { icon: DocumentChartBarIcon, text: "Relatório final organizado" },
+  { icon: ClockIcon, text: "Acompanhamento 30 dias" },
 ];
 
 export function Deliverables() {
@@ -20,17 +33,21 @@ export function Deliverables() {
     <section className="py-20 lg:py-28 bg-card border-y border-border">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">O que Entregamos</h2>
+          <p className="text-sm font-semibold text-primary tracking-wide uppercase">Entregas</p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">O que Entregamos</h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
             Exemplos de entregas que você pode receber ao contratar nossos serviços.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
           {deliverables.map((item) => (
-            <div key={item} className="flex items-center gap-3 rounded-lg bg-background border border-border p-4">
-              <DocumentCheckIcon className="h-5 w-5 text-primary shrink-0" />
-              <span className="text-foreground">{item}</span>
+            <div
+              key={item.text}
+              className="flex items-center gap-2 rounded-full bg-background border border-border px-4 py-2.5 hover:border-primary/50 hover:bg-background/80 transition-all"
+            >
+              <item.icon className="h-4 w-4 text-primary shrink-0" />
+              <span className="text-sm font-medium text-foreground whitespace-nowrap">{item.text}</span>
             </div>
           ))}
         </div>
