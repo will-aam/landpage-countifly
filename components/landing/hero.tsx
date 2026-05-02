@@ -6,6 +6,7 @@ import {
   UserGroupIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/outline";
+import { Marquee } from "@/components/ui/marquee";
 
 const benefits = [
   { icon: CubeIcon, text: "Levantamento rápido de produtos" },
@@ -16,9 +17,20 @@ const benefits = [
   { icon: DocumentTextIcon, text: "Emissão de NFS-e quando solicitado" },
 ];
 
+function BenefitCard({ icon: Icon, text }: { icon: typeof CubeIcon; text: string }) {
+  return (
+    <div className="flex flex-col items-center gap-3 rounded-xl bg-card border border-border p-4 text-center min-w-[160px] sm:min-w-[180px]">
+      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+        <Icon className="h-6 w-6 text-primary" />
+      </div>
+      <span className="text-sm font-medium text-foreground whitespace-nowrap">{text}</span>
+    </div>
+  );
+}
+
 export function Hero() {
   return (
-    <section id="inicio" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <section id="inicio" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
@@ -46,18 +58,21 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {benefits.map((benefit) => (
-            <div
-              key={benefit.text}
-              className="flex flex-col items-center gap-3 rounded-xl bg-card border border-border p-4 text-center"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                <benefit.icon className="h-6 w-6 text-primary" />
-              </div>
-              <span className="text-sm font-medium text-foreground">{benefit.text}</span>
-            </div>
-          ))}
+        <div className="relative mt-16">
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+          
+          <Marquee pauseOnHover className="[--duration:30s] [--gap:1rem]">
+            {benefits.map((benefit) => (
+              <BenefitCard key={benefit.text} icon={benefit.icon} text={benefit.text} />
+            ))}
+          </Marquee>
+          
+          <Marquee reverse pauseOnHover className="[--duration:30s] [--gap:1rem] mt-4">
+            {[...benefits].reverse().map((benefit) => (
+              <BenefitCard key={benefit.text} icon={benefit.icon} text={benefit.text} />
+            ))}
+          </Marquee>
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
