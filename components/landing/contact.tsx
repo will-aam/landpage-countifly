@@ -1,148 +1,117 @@
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline"
-import { Button } from "@/components/ui/button"
+import { EnvelopeIcon, PhoneIcon, ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
 
 export function Contact() {
   return (
-    <section id="contato" className="py-16 sm:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-balance">
-              Solicite seu Orçamento
-            </h2>
-            <p className="mt-4 text-muted-foreground text-pretty max-w-xl mx-auto">
-              Entre em contato e conte sobre sua loja. Fazemos um diagnóstico
-              inicial sem compromisso.
+    <section id="contato" className="py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Solicitar Orçamento</h2>
+          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+            Quer organizar seu estoque sem parar sua operação? Entre em contato com a Countifly.
+          </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="rounded-2xl bg-card border border-border p-8">
+            <h3 className="text-xl font-semibold text-foreground mb-6">Informações para orçamento</h3>
+            <p className="text-muted-foreground mb-6">
+              Para um orçamento mais preciso, tenha em mãos as seguintes informações:
             </p>
+            <ul className="space-y-3 text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Nome e empresa
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Cidade
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Tipo de comércio
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Quantidade aproximada de produtos
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Serviço desejado (levantamento, contagem, etc.)
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Sistema utilizado (se houver)
+              </li>
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Contact Info */}
-            <div className="bg-card border border-border rounded-xl p-6 sm:p-8">
-              <h3 className="text-xl font-semibold text-foreground mb-6">
-                Fale Conosco
-              </h3>
+          <div className="rounded-2xl bg-card border border-border p-8">
+            <h3 className="text-xl font-semibold text-foreground mb-6">Canais de contato</h3>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <PhoneIcon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">
-                      WhatsApp
-                    </p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      (00) 00000-0000
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Resposta rápida em horário comercial
-                    </p>
-                  </div>
+            <div className="space-y-6">
+              <a
+                href="https://wa.me/5500000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-xl bg-background border border-border p-4 hover:border-primary/50 transition-colors"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary" />
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <EnvelopeIcon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">
-                      E-mail
-                    </p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      contato@countifly.com.br
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Respondemos em até 24 horas
-                    </p>
-                  </div>
+                <div>
+                  <p className="font-medium text-foreground">WhatsApp</p>
+                  <p className="text-sm text-muted-foreground">(00) 00000-0000</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="mt-8 pt-6 border-t border-border">
-                <p className="text-sm text-muted-foreground mb-4">
-                  Prefere uma ligação? Deixe seu número que entramos em contato.
-                </p>
-                <Button className="w-full" asChild>
-                  <a
-                    href="https://wa.me/5500000000000"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Chamar no WhatsApp
-                  </a>
-                </Button>
-              </div>
+              <a
+                href="tel:+5500000000000"
+                className="flex items-center gap-4 rounded-xl bg-background border border-border p-4 hover:border-primary/50 transition-colors"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <PhoneIcon className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">Telefone</p>
+                  <p className="text-sm text-muted-foreground">(00) 00000-0000</p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:contato@countifly.com.br"
+                className="flex items-center gap-4 rounded-xl bg-background border border-border p-4 hover:border-primary/50 transition-colors"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <EnvelopeIcon className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">E-mail</p>
+                  <p className="text-sm text-muted-foreground">contato@countifly.com.br</p>
+                </div>
+              </a>
             </div>
 
-            {/* Quick Info */}
-            <div className="bg-card border border-border rounded-xl p-6 sm:p-8">
-              <h3 className="text-xl font-semibold text-foreground mb-6">
-                Por que escolher a Countifly?
-              </h3>
-
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">
-                      Especialistas em pequenos comércios
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Entendemos a realidade de mercearias, minimercados e
-                      varejos de bairro.
-                    </p>
-                  </div>
-                </li>
-
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">
-                      Preços justos e transparentes
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Sem surpresas. Você sabe exatamente o que está pagando.
-                    </p>
-                  </div>
-                </li>
-
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">
-                      Emissão de NFS-e
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Nota Fiscal de Serviço emitida para todos os trabalhos.
-                    </p>
-                  </div>
-                </li>
-
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">
-                      Acompanhamento completo
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Do levantamento até o sistema funcionando.
-                    </p>
-                  </div>
-                </li>
-              </ul>
+            <div className="mt-8">
+              <a
+                href="https://wa.me/5500000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-lg bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Falar pelo WhatsApp
+              </a>
             </div>
           </div>
         </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-sm text-muted-foreground">
+            Aceitamos todas as formas de pagamento: PIX, cartão de crédito/débito, transferência bancária e boleto.
+            <br />
+            Emitimos Nota Fiscal de Serviço (NFS-e) quando solicitado.
+          </p>
+        </div>
       </div>
     </section>
-  )
+  );
 }
